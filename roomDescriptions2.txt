@@ -1,0 +1,25 @@
+
+Entrance Hall
+You stand inside the entrance hall of Blackwood Mansion. A grand staircase rises before you, and an old chandelier hangs from the ceiling. Dust covers the marble floor, and the front doors have locked behind you. A cold breeze moves through the hall even though every window is shut.
+#
+Living Room
+The living room is filled with faded furniture and torn curtains. An enormous fireplace stands against the far wall, surrounded by portraits of people whose faces have been scratched out. A layer of dust covers a small table, but one drawer appears to have been opened recently.
+#
+Library
+The mansion library contains hundreds of old books stacked on tall wooden shelves. A desk sits beneath a flickering lamp, and scattered papers cover its surface. One book has been pulled halfway out of the shelf, revealing a narrow space behind it.
+#
+Kitchen
+The kitchen looks as though its last meal was abandoned years ago. Rusted pots hang above a large stove, and cracked plates cover the counters. A pantry door stands slightly open, and the air smells faintly of smoke and old wood.
+#
+Bedroom
+This bedroom belonged to one of the mansion's former residents. A large four-poster bed stands beneath a torn canopy, and an antique dresser rests against the wall. A locked drawer sits beneath a mirror, while an old keyhole catches the light.
+#
+Attic
+You climb into the attic, where broken furniture and dusty trunks fill the narrow space. Strange marks cover the wooden beams, and the wind whistles through a crack in the roof. One trunk has a rusty lock, and something inside shifts when the floor creaks.
+#
+Basement
+The basement is cold, damp, and almost completely dark. Stone walls surround a collection of old crates and empty shelves. A weak light shines beneath a heavy wooden door at the end of the corridor. The air grows colder as you approach it.
+#
+Study
+The study contains a large desk, a damaged typewriter, and a wall covered with old documents. A portrait hangs crookedly above the fireplace. Several papers mention the Blackwood family, but one page has been torn out of a journal.
+#
