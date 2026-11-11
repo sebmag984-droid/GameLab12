@@ -31,6 +31,21 @@ public class Item implements Serializable {
 		return false;
 	}
 	
+	public void open() {
+		Game.print("You cannot open the " + name + ".");
+	}
+
+	  
+	public void close() {
+		Game.print("You cannot close the " + name + ".");
+	}
+
+	    
+	public void read() {
+		Game.print("You cannot read the " + name + ".");
+	}
+
+		
 	@Override
 	public String toString() {
 		return name;

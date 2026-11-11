@@ -2,11 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
+import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 	public class Game {
 
@@ -20,6 +23,122 @@ import java.io.IOException;
 			GameGui.appendOutput(String.valueOf(obj));
 		}
 
+
+		public static void addIneventoryItem(Item item) {
+			inventory.add(item);
+			
+		}	
+			public static boolean hasItem(String itemName) {
+
+				for (Item item : inventory) {
+					if (item.getName().equalsIgnoreCase(itemName)) {
+						return true;
+					}
+				}	
+			return false;
+			
+		}
+		
+		public static Room getCurrentRoom() {
+			return currentRoom;
+		}
+		
+		public static Item findItem(String name) {
+			
+			Item item = currentRoom.getItem(name);
+			
+			if (item != null) {
+				return item;
+			}
+			
+			for (Item inventoryItem : inventory) {
+				if (inventoryItem.getName().equalsIgnoreCase(name)) {
+					return inventoryItem;
+				}
+			}
+			
+			return null;
+		}
+		
+	
+		public static void processItemCommand(String action, String name) {
+			
+			Item item = findItem(name);
+			
+			if (item == null) {
+				print("You cannot find that item.");
+				return;
+			}
+			
+			if (action.equals("open")) {
+				item.open();
+			}
+			
+			else if (action.equals("close")) {
+				item.close();
+			}
+			
+			else if (action.equals("read")) {
+				item.read();
+			}
+					
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+
+		public static void loadRoomDescriptions() {
+
+			try {
+				Scanner fileInput = new Scanner(
+						new File("roomDescriptions.txt"));
+
+				while (fileInput.hasNextLine()) {
+
+					String roomName = fileInput.nextLine().trim();
+
+					if (roomName.isEmpty()) {
+						continue;
+					}
+
+					String description = "";
+
+					while (fileInput.hasNextLine()) {
+
+						String line = fileInput.nextLine();
+
+						if (line.trim().equals("#")) {
+							break;
+						}
+
+						description += line + "\n";
+					}
+
+					Game.roomDescriptions.put(roomName, description);
+				}
+
+				fileInput.close();
+
+				print("Room descriptions loaded successfully.");
+
+			} catch (FileNotFoundException e) {
+
+				print("Could not find roomDescriptions.txt");
+			}
+		}
+
+		
+		
+	
+		
 		public static void move(String direction) {
 			int number;
 
@@ -50,7 +169,13 @@ import java.io.IOException;
 				currentRoom = nextRoom;
 			}
 		}
-
+		
+		
+		
+		
+		
+		
+		
 		public static void takeItem(String name) {
 			Item item = currentRoom.getItem(name);
 
@@ -69,6 +194,8 @@ import java.io.IOException;
 			print("You take the " + name + " and carry it with you!");
 		}
 
+		
+		
 		public static void useItem(String name) {
 			Item item = null;
 
