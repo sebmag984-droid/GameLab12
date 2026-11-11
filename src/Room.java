@@ -1,80 +1,87 @@
-
+import java.util.HashMap;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Room implements Serializable {
-    private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
+	
+	public static ArrayList<Room> rooms = new ArrayList<Room>();
 
-    private String name;
-    private Room[] exits;
-    private Item item;
-    private String defaultDescription;
+	private String name;
+	private String description;
+	private Room[] exits;
+	private HashMap<String, Item> items;
+	private boolean locked;
 
-    public Room(String name, String defaultDescription) {
-        this.name = name;
-        this.defaultDescription = defaultDescription;
-        exits = new Room[6];
-        item = null;
-    }
+	public Room(String name, String description) {
+		this.name = name;
+		this.description = description;
+		exits = new Room[6];
+		items = new HashMap<String, Item>();
+		
+		rooms.add(this);
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getDescription() {
-        String description =
-                Game.roomDescriptions.get(name);
+	public String getDescription() {
+		return Game.roomDescriptions.get(name);
+	}
 
-        if (description != null) {
-            return description;
-        }
+	public void setDescription(String description) {
+		Game.roomDescriptions.put(name, description);
+	}
 
-        return defaultDescription;
-    }
+	
+	public boolean isLocked() {
+		return locked;
+	}
+	
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+		
+	
+	public String toString() {
+		String description = Game.roomDescriptions.get(name);
 
-    public void setDescription(String description) {
-        defaultDescription = description;
-    }
+		if (description == null) {
+			description = "No description available.";
+		}
 
-    public String toString() {
-        return name + "\n" + getDescription();
-    }
+		return name + "\n" + description;
+	}
 
-    public void addExit(Room room, int direction) {
-        exits[direction] = room;
-    }
+	public void addExit(Room room, int direction) {
+		exits[direction] = room;
+	}
 
-    public Room getExit(int direction) {
-        return exits[direction];
-    }
+	public Room getExit(int direction) {
+		return exits[direction];
+	}
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
+	public void addItem(Item item) {
+		items.put(item.getName(), item);
+	}
 
-    public Item getItem() {
-        return item;
-    }
+	public void setItem(Item item) {
+		addItem(item);
+	}
 
-    public boolean removeItem(String itemName) {
-        if (item != null &&
-                item.getName().equalsIgnoreCase(itemName)) {
-            item = null;
-            return true;
-        }
+	
+	public Item getItem(String name) {
+		return items.get(name);
+	}
 
-        return false;
-    }
+	public Item removeItem(String name) {
+		return items.remove(name);
+	}
+	}
 
-    public Item getItem(String itemName) {
-        if (item != null &&
-                item.getName().equalsIgnoreCase(itemName)) {
-            return item;
-        }
-
-        return null;
-    }
-}

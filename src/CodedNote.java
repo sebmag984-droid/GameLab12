@@ -1,4 +1,7 @@
 
-public class CodedNote {
+public class CodedNote extends Item {
 
+    public CodedNote() {
+        super("coded note");
+    }
 }
