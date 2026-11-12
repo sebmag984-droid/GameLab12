@@ -24,6 +24,11 @@ public class Game {
 
 	private static Consumer<String> GUIOutput = null;
 
+	
+	//hello
+	
+	
+	
     public static void print(Object obj) {
         String message = String.valueOf(obj);
         System.out.println(message);
