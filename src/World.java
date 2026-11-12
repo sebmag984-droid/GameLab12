@@ -64,17 +64,5 @@ public class World {
         basement.addItem(heavyChest);
 
         return entranceHall;
-
-        Item oldKey = new Item("old key");
-
-        Item familyJournal = new FamilyJournal();
-
-        Item atticNotebook = new AtticNotebook();
-
-        Item codedNote = new CodedNote();
-
-        Item heavyChest = new HeavyChest();
-
-        return entranceHall;
     }
 }

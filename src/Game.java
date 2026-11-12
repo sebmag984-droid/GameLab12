@@ -22,6 +22,8 @@ public class Game {
     private static Consumer<String> guiOutput;
     private static final String SAVE_FILE = "blackwood_save.dat";
 
+	private static Consumer<String> GUIOutput = null;
+
     public static void print(Object obj) {
         String message = String.valueOf(obj);
         System.out.println(message);
@@ -52,12 +54,12 @@ public class Game {
         return false;
     }
 
-    // Get the current room
+   
     public static Room getCurrentRoom() {
         return currentRoom;
     }
 
-    // Find an item in the room or inventory
+    
     public static Item findItem(String name) {
 
         Item item = currentRoom.getItem(name);
@@ -75,7 +77,7 @@ public class Game {
         return null;
     }
 
-    // Process open, close, and read commands
+  
     public static void processItemCommand(String action, String name) {
 
         Item item = findItem(name);
@@ -96,7 +98,7 @@ public class Game {
         }
     }
 
-    // Load room descriptions
+   
     public static void loadRoomDescriptions() {
 
         try {
@@ -136,7 +138,7 @@ public class Game {
         }
     }
 
-    // Move between rooms
+    
     public static void move(String direction) {
 
         int number;
@@ -177,7 +179,7 @@ public class Game {
         }
     }
 
-    // Take an item
+    
     public static void takeItem(String name) {
 
         Item item = currentRoom.getItem(name);
@@ -198,8 +200,7 @@ public class Game {
         print("You take the " + name + " and carry it with you!");
     }
 
-    // Use an item
-    public static void useItem(String name) {
+        public static void useItem(String name) {
 
         Item item = null;
 
@@ -219,7 +220,7 @@ public class Game {
         item.use();
     }
 
-    // Show inventory
+   
     public static void showInventory() {
 
         if (inventory.isEmpty()) {
@@ -234,7 +235,7 @@ public class Game {
         }
     }
 
-    // Save game
+   
     public static void saveGame() {
 
         try {
@@ -257,7 +258,7 @@ public class Game {
         }
     }
 
-    // Load game
+
     @SuppressWarnings("unchecked")
     public static void loadGame() {
 
@@ -290,7 +291,7 @@ public class Game {
         }
     }
 
-    // Start GUI game
+    
     public static void runGameGUI() {
 
         print("Welcome to Blackwood Mansion!");
@@ -309,7 +310,7 @@ public class Game {
         print(currentRoom);
     }
 
-    // Process GUI commands
+    
     public static void processGUICommand(String command) {
 
         command = command.trim().toLowerCase();
@@ -317,6 +318,7 @@ public class Game {
         if (command.isEmpty()) {
             return;
         }
+     // Console game
 
         String[] words = command.split(" ", 2);
 
@@ -359,7 +361,8 @@ public class Game {
                 if (words.length > 1) {
                     useItem(words[1].trim());
                 }
-                else {
+                else {// Console game
+
                     print("Use what?");
                 }
                 break;
@@ -433,8 +436,7 @@ public class Game {
         }
     }
 
-    // Console game
-    public static void runGame() {
+        public static void runGame() {
 
         Scanner input = new Scanner(System.in);
 

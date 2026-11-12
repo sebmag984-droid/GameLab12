@@ -72,7 +72,7 @@ public class GameGUI extends JFrame {
         setVisible(true);
 
         Game.print("Welcome to Blackwood Mansion!");
-        Game.print(Game.getCurrentRoomText());
+        Game.print(Game.getCurrentRoom());
     }
 
     private void submitCommand() {
