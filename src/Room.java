@@ -71,6 +71,7 @@ public class Room implements Serializable {
 		items.put(item.getName(), item);
 	}
 
+
 	public void setItem(Item item) {
 		addItem(item);
 	}

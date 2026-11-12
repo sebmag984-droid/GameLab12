@@ -1,0 +1,30 @@
+Living Room
+The living room is the center of the house. A couch faces an old television, and a coffee table is covered with magazines and empty cups. Family pictures hang on the walls, and the carpet could definitely use a good cleaning.
+
+Doorways lead west to the office, north to the bedroom, and east to the kitchen.
+#
+Office
+The office is a small room filled with books, papers, and computer equipment. Your father's desk sits against the wall, and a desk lamp lights up a stack of unfinished work. A few old boxes are pushed into the corner.
+
+The living room is to the east, and the garage is to the south.
+#
+Kitchen
+The kitchen smells like leftover food from last night's dinner. A refrigerator stands beside the stove, and dishes are piled in the sink. A small table sits near the window, with two chairs tucked underneath it.
+
+You can return west to the living room.
+#
+Bedroom
+This is your bedroom, where you have lived since your family moved into the house. A nightstand with a lamp sits beside your bed. Posters cover the walls, and a pile of laundry occupies one corner of the room.
+
+You can travel south to the living room or go up to the attic.
+#
+Attic
+The attic is dark and dusty, with old boxes stacked along the walls. Forgotten toys, holiday decorations, and pieces of furniture are scattered across the wooden floor. A small window lets a little sunlight into the room.
+
+The stairs lead down to the bedroom.
+#
+Garage
+The garage is crowded with tools, storage boxes, and old equipment. Your father's car sits near the garage door, and a workbench holds several screwdrivers and other tools. The air smells faintly of motor oil.
+
+You can head north to the office.
+#

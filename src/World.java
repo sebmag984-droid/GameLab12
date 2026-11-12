@@ -1,6 +1,7 @@
 
 public class World {
 
+
     public static Room buildWorld() {
 
         Room entranceHall = new Room( "Entrance Hall", "The entrance hall of Blackwood Mansion is silent.");
