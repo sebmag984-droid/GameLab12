@@ -13,6 +13,9 @@ public class Room implements Serializable {
 	private Room[] exits;
 	private HashMap<String, Item> items;
 	private boolean locked;
+	
+	private NPC npc;
+	
 
 	public Room(String name, String description) {
 		this.name = name;
@@ -78,4 +81,13 @@ public class Room implements Serializable {
 	public Item removeItem(String name) {
 		return items.remove(name);
 	}
+	
+	public void setNPC(NPC npc) {
+		this.npc = npc;
+	}
+	
+	public NPC getNPC() {
+		return npc;
+	}
+	
 	}

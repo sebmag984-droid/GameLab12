@@ -64,6 +64,10 @@ public class World {
 		kitchen.addItem(knife);
 		kitchen.addItem(orb);
 
+		Bobo bobo = new Bobo();
+		livingRoom.setNPC(bobo);
+			
+		
 		return livingRoom;
 	}
 	}

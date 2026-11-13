@@ -89,8 +89,22 @@ import java.io.FileNotFoundException;
 		
 		
 		
-		
-		
+		public static void talkToNPC(String npcName) {
+			NPC npc = currentRoom.getNPC();
+
+			if (npc == null) {
+				print("There is nobody here to talk to.");
+			}
+
+			else if (npc.getName().equalsIgnoreCase(npcName)) {
+				npc.talk();
+	        }
+
+	        else {
+	            print("You can't talk to " + npcName
+	                + " because they aren't in this room.");
+	        }
+	    }
 		
 		
 		
@@ -334,6 +348,21 @@ import java.io.FileNotFoundException;
                     print("Use what?");
                 }
                 break;
+                
+            case "talk":
+                if (words.length > 1 &&
+                    words[1].startsWith("to ")) {
+
+                    talkToNPC(words[1].substring(3).trim());
+
+                } else {
+                    print("Talk to whom?");
+                }
+                break;
+                
+                
+                      
+                
 
             case "i":
             case "inventory":
