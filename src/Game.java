@@ -301,12 +301,20 @@ import java.io.FileNotFoundException;
 		}
 
 		public static void processGUICommand(String command) {
-			command = command.trim().toLowerCase();
+			processCommand(command, true);
+		}		
+			
+		public static void processCommand(String command, boolean gui) {
+			command = command.trim().toLowerCase();	
 
 			if (command.isEmpty()) {
 				return;
 			}
 
+			
+			
+		
+			
 			String[] words = command.split(" ", 2);
 
 			switch (words[0]) {
@@ -418,85 +426,7 @@ import java.io.FileNotFoundException;
 				if (command.isEmpty()) {
 					continue;
 				}
-
-				String[] words = command.split(" ", 2);
-
-				switch (words[0]) {
-				case "north":
-				case "south":
-                case "east":
-                case "west":
-                case "up":
-                case "down":
-                	move(words[0]);
-                	print(currentRoom);
-                    break;
-
-                case "go":
-                    if (words.length > 1) {
-                        move(words[1].trim());
-                        print(currentRoom);
-                    } else {
-                    	print("Go where?");
-                    }
-                    break;
-
-                case "look":
-                	print(currentRoom);
-                    break;
-
-                case "take":
-                    if (words.length > 1) {
-                        takeItem(words[1].trim());
-                    } else {
-                    	print("Take what?");
-                    }
-                    break;
-
-                case "use":
-                	if (words.length > 1) {
-                		useItem(words[1].trim());
-                    } else {
-                        print("Use what?");
-                    }
-                	break;
-
-                case "i":
-                case "inventory":
-                	showInventory();
-                	break;
-
-                case "save":
-                	saveGame();
-                    break;
-
-                case "load":
-                	loadGame();
-                	break;
-
-                case "help":
-                	print("Available commands:");
-                    print("north, south, east, west, up, down");
-                    print("go direction");
-                    print("look");
-                    print("take item");
-                    print("use item");
-                    print("i or inventory");
-                    print("save");
-                    print("load");
-                    print("exit or quit");
-                    break;
-
-                case "exit":
-                case "quit":
-                    print("Goodbye!");
-                    break;
-
-                default:
-                	print("I don't understand that command.");
-                    print("Type help to see the available commands.");
-                    break;
-				}
+			
 
 			} while (!command.equals("exit") && !command.equals("quit"));
 		}
