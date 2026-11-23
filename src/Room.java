@@ -51,7 +51,7 @@ public class Room implements Serializable {
 		this.locked = locked;
 	}
 		
-	
+	@Override
 	public String toString() {
 		String description = Game.roomDescriptions.get(name);
 

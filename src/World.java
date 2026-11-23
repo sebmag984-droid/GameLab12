@@ -9,6 +9,20 @@ public class World {
 		Room attic = new Room("Attic", "A dusty attic with boxes and old belongings");
 		Room garage = new Room("Garage", "A garage filled with tools and equipment");
 
+		Game.roomDescriptions.put("Living Room", "A small living room with a couch and coffee table.");
+
+        Game.roomDescriptions.put("Office", "An office with a desk and computer.");
+
+        Game.roomDescriptions.put("Kitchen","A kitchen with a refrigerator and stove.");
+
+        Game.roomDescriptions.put("Bedroom","A bedroom with a bed and dresser.");
+
+        Game.roomDescriptions.put("Attic","A dusty attic filled with old belongings.");
+
+        Game.roomDescriptions.put("Garage","A garage filled with tools and equipment.");
+		
+		
+		
 	
 		livingRoom.addExit(kitchen, 0);
 		livingRoom.addExit(office, 1);

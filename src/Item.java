@@ -28,7 +28,7 @@ public class Item implements Serializable {
 	}
 		
 	public boolean isHeavy() {
-		return false;
+		return heavy;
 	}
 	
 	public void open() {
