@@ -28,6 +28,16 @@ import java.io.FileNotFoundException;
 			inventory.add(item);
 			
 		}	
+		
+		public static void addInventoryItem(Item item) {
+			inventory.add(item);
+		}
+		
+		public static void removeInventoryItem(Item item) {
+			inventory.remove(item);
+		}
+		
+		
 			public static boolean hasItem(String itemName) {
 
 				for (Item item : inventory) {
@@ -38,7 +48,19 @@ import java.io.FileNotFoundException;
 			return false;
 			
 		}
-		
+	
+		public static Item findInventoryItem(String itemName) {
+			for (Item item : inventory) {
+				if (item.getName().equalsIgnoreCase(itemName)) {
+					return item;
+				}
+			}
+
+			return null;
+		}	
+				
+			
+			
 		public static Room getCurrentRoom() {
 			return currentRoom;
 		}
@@ -105,6 +127,36 @@ import java.io.FileNotFoundException;
 	                + " because they aren't in this room.");
 	        }
 	    }
+		
+		public static void giveItem(String itemName, String npcName) {
+
+	        NPC npc = currentRoom.getNPC();
+
+	      
+	        if (npc == null) {
+	            print("There is nobody here to give an item to.");
+	            return;
+	        }
+
+	      
+	        if (!npc.getName().equalsIgnoreCase(npcName)) {
+	            print("That NPC is not in this room.");
+	            return;
+	        }
+
+	        
+	        Item item = findInventoryItem(itemName);
+
+	        if (item == null) {
+	            print("You are not carrying that item.");
+	            return;
+	        }
+
+	      
+	        npc.give(item);
+		}
+		
+		
 		
 		
 		
@@ -184,11 +236,7 @@ import java.io.FileNotFoundException;
 			}
 		}
 		
-		
-		
-		
-		
-		
+			
 		
 		public static void takeItem(String name) {
 			Item item = currentRoom.getItem(name);
@@ -313,7 +361,6 @@ import java.io.FileNotFoundException;
 
 			
 			
-		
 			
 			String[] words = command.split(" ", 2);
 
@@ -367,6 +414,42 @@ import java.io.FileNotFoundException;
                     print("Talk to whom?");
                 }
                 break;
+                
+            case "give":
+
+            	if (words.length > 1) {
+
+            		String giving = words[1].trim();
+
+                    int toIndex = giving.indexOf(" to ");
+
+                   if (toIndex >= 0) {
+
+                       String itemName =
+                                giving.substring(0, toIndex).trim();
+
+                       String npcName =
+                                giving.substring(toIndex + 4).trim();
+
+                       if (!itemName.isEmpty()
+                                && !npcName.isEmpty()) {
+
+                            giveItem(itemName, npcName);
+                        }
+                        else {
+                            print("Use: give item to NPC");
+                        }
+                    }
+                    else {
+                        print("Use: give item to NPC");
+                    }
+                }
+                else {
+                    print("Give what to whom?");
+                }
+
+                break;
+                
                 
                 
                       

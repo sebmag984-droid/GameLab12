@@ -36,6 +36,32 @@ public class Bobo extends NPC {
         }
     }
 
+    @Override
+    public void give(Item item) {
+
+        if (item.getName().equalsIgnoreCase("money")) {
+        	Game.removeInventoryItem(item);
+
+            say("Thanks! Here's the combination.");
+
+            if (!Game.hasItem("combination")) {
+                Game.addInventoryItem(new Item("combination"));
+            }
+
+            Game.print("Bobo gives you the combination.");
+
+        } else {
+            say("I don't want the " + item.getName() + ".");
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     private void conversation0() {
     	
         say("Hello! How may I help you today?");

@@ -62,6 +62,9 @@ public class World {
 		Item bed = new Item("bed", true);
 
 		
+		Item money = new Item("money");
+		
+		
 		livingRoom.addItem(tool);
 		livingRoom.addItem(musicbox);
 		livingRoom.addItem(couch);
@@ -69,6 +72,8 @@ public class World {
 		bedroom.addItem(officekey);
 		bedroom.addItem(bed);
 
+		bedroom.addItem(money);
+		
 		attic.addItem(notebook);
 		attic.addItem(password);
 

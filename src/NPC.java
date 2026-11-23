@@ -29,6 +29,12 @@ public class NPC implements Serializable {
         say("You can't talk to " + name + ".");
     }
 
+    public void give(Item item) {
+        say("I don't want the " + item.getName() + ".");
+    
+    }
+    
+    
     public int getResponse(String[] responses) {
 
         for (int i = 0; i < responses.length; i++) {
